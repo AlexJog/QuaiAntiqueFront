@@ -6,12 +6,13 @@ btnSingin.addEventListener("click", checkCredentials);
 
 function checkCredentials() {
     // Ici, il faudra appeler l'API pour vérifier les credentials en BDD
-    if(mailInput.value == "wou@gmail.com" && passwordInput.value == "Test12345.") {
+    if(mailInput.value == "wou@gmail.com" && passwordInput.value == "2904") {
         // Il faudra récupérer le vrai token
         const token = "qlijfdblsjkBfqdsFQGqgfdg"
         setToken(token);
         // Placer ce token en cookie
 
+        setCookie(RoleCookieName, "admin", 7);
         window.location.replace("/");
     } else {
         mailInput.classList.add("is-invalid");
