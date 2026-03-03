@@ -16,4 +16,4 @@ jobs:
         remote_path: /home/quaiantique-resto/www/
         remote_host: ssh-quaiantique-resto.alwaysdata.net
         remote_user: quaiantique-resto
-        remote_password: ${{ secrets.SSH_PASSWORD }}
+        remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
