@@ -9,18 +9,11 @@ jobs:
       uses: actions/checkout@v4
     
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+      uses: burnett01/rsync-deployments@7.0.1
       with:
-        server: ftp-quaiantique-resto.alwaysdata.net
-        username: quaiantique-resto
-        password: ${{ secrets.ftp_password }}
-        protocol: ftps
-        port: 21
-        security: loose
-        server-dir: /www/
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/bootstrap/scss/**
-          **/node_modules/bootstrap/js/**
-          **/node_modules/bootstrap-icons/icons/**
+        switches: -avzr --delete --exclude='.git*' --exclude='node_modules/' --exclude='node_modules/bootstrap/scss/' --exclude='node_modules/bootstrap/js/' --exclude='node_modules/bootstrap-icons/icons/'
+        path: ./
+        remote_path: /home/quaiantique-resto/www/
+        remote_host: ssh-quaiantique-resto.alwaysdata.net
+        remote_user: quaiantique-resto
+        remote_password: ${{ secrets.SSH_PASSWORD }}
