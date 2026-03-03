@@ -14,7 +14,7 @@ jobs:
         server: ftp-quaiantique-resto.alwaysdata.net
         username: quaiantique-resto
         password: ${{ secrets.ftp_password }}
-        server-dit: /www/
+        server-dir: /www/
         exclude: |
           **/.git*
           **/.git*/**
